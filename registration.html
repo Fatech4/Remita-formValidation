@@ -1,0 +1,200 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Register</title>
+
+    <link rel="stylesheet" href="./assets/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
+
+    <link rel="stylesheet" href="./assets/css/style.css">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous">
+    <link href="https://fonts.googleapis.com/css2?family=Open+Sans&display=swap" rel="stylesheet">
+</head>
+
+<body>
+    <div class="wrapper">
+        <header style="background-image: url(./assets/images/header-bg-light.png)">
+            <div class="container header-container d-flex flex-row justify-content-between">
+                <div class="logo">
+                    <a href="//www.remita.net/signin" class="logo">
+                        <img src="./assets/images/remita_logo_white.png" alt="Remita Logo">
+                    </a>
+                </div>
+                <nav>
+                    <ul class="nav nav-pills">
+                        <li class="nav-item">
+                            <a class="nav-link" href="#">ABOUT</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="#">REMITA MOBILE</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="#">DEVELOPERS</a>
+                        </li>
+
+                    </ul>
+                </nav>
+            </div>
+        </header>
+        <div class="container">
+
+            <div class="registration-container " style="background-color:#f8f9f8">
+
+                <div class="personal-registration-container">
+                    <div class="col-sm-12 center-box text-center">
+                        <img src="./assets/images/registration_icon.svg">
+                        <h3>Register with Remita</h3>
+
+
+                        <p>Please enter your details below</p>
+                    </div>
+                    <div class="col-xs-12">
+                        <form id="registrationForm" method="post">
+
+                            <div class="form-row">
+                                <div class="col-sm-6">
+                                    <div class="form-group ">
+                                        <label for="email">Email Address <span class="required-field">*</span></label>
+                                        <input type="email" class="form-control rounded-0 required" placeholder="Enter Email Address" id="email" required>
+                                    </div>
+                                </div>
+                                <div class="col-sm-6">
+                                    <div class="form-group ">
+                                        <label for="phone">Phone Number <span class="required-field">*</span></label>
+                                        <input type="tel" class="form-control rounded-0 required " id="phone" required>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="form-row">
+                                <div class="form-group col-md-6">
+                                    <label for="fname">First Name <span class="required-field">*</span></label>
+                                    <input type="text" class="form-control rounded-0" id="fname" placeholder="Enter First Name" required>
+                                </div>
+                                <div class="form-group col-md-6">
+                                    <label for="lname">Last Name <span class="required-field">*</span></label>
+                                    <input type="text" class="form-control rounded-0 required" placeholder="Enter Last Name" id="lname" required>
+                                </div>
+                            </div>
+                            <div class="form-row">
+                                <div class="form-group col-md-12">
+                                    <label for="accountType">This Registration is for <span class="required-field">*</span></label>
+                                    <select id="accountType" class="form-control required" name="rtype">
+                                        <option value="">Please Select From - Self/SME/Corporate etc</option>
+                                        <option value="PERSONAL" id="personal">My Personal Account</option>
+                                        <option value="SME" id="sme">MSME - Sole Signatory</option>
+                                        <option value="CORPORATE">SME/Corporate - Multi Signatory</option>
+                                        <option value="GOVERNMENT">Government/MDA</option>
+                                </select>
+
+                                </div>
+                            </div>
+                            <div class="form-row">
+                                <div class="form-group col-md-12 ">
+                                    <label for="corporateName">Corporate/SME Name</label>
+                                    <input type="text" class="form-control required" id="corporateName" placeholder="Please Enter your Corporate/SME Name " name="corporateFullname" autocomplete="off">
+                                </div>
+                            </div>
+                            <div class="form-row">
+                                <div class="form-group col-md-6">
+                                    <label for="taxstate">Tax beneficiary state</label>
+                                    <select id="taxstate" class="form-control">
+                                            <option value="" selected="" disabled="" hidden="">Select Tax beneficiary state (Optional)</option>
+                                            <option value="LAGOS">Lagos</option>
+                                    </select>
+                                </div>
+                                <div class="form-group col-md-6">
+                                    <label for="statepayerid">Corporate Payer ID</label>
+                                    <input type="text" class="form-control rounded-0" id="statepayerid" required placeholder="Enter State PayerID (Optional)">
+                                </div>
+                            </div>
+                            <button type="submit" class="btn btn-primary rounded-0">
+                                <span class="btn-remita-text">Next</span>
+                                <i class="fa fa-angle-right"></i>
+                            </button>
+
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <footer style="background-color: #f8f9f8;">
+            <div class="container footer-container">
+                <div class="row">
+                    <div class="col-md-5">
+                        <h4>Contact us</h4>
+                        <p>www.systemspecs.com.ng
+                            <br>Plot B22, Yesufu Abiodun Oniru Road, Oniru.
+                            <br>
+
+                            <b>Support:</b> +234-1-6367000, +234700-7877678
+                            <br>
+                            <a href="mailto:support@remita.net">support@remita.net</a>
+                        </p>
+
+                    </div>
+                    <div class="col-md-2 ml-md-auto col-sm-4 col-xs-6 footer-links">
+                        <ul class="list-unstyled">
+                            <li>
+                                <a href="https:////www.remita.net/products/about/">About Us</a>
+                            </li>
+                            <li>
+                                <a href="https:////www.remita.net/products/features/">Features</a>
+                            </li>
+                            <li>
+                                <a href="https:////www.remita.net/mobileapp/" target="_blank">Remita Mobile</a>
+                            </li>
+
+                        </ul>
+                    </div>
+                    <div class="col-md-2 col-sm-4 col-xs-6 footer-links">
+                        <ul class="list-unstyled">
+                            <li>
+                                <a href="https:////www.remita.net/products/pricing/">Pricing</a>
+                            </li>
+                            <li>
+                                <a href="https:////www.remita.net/business/partners/">Agents and Partners</a>
+                            </li>
+                            <li>
+                                <a href="https:////www.remita.net/developers/" target="_blank">Developers</a>
+                            </li>
+                        </ul>
+                    </div>
+                    <div class="col-md-3 col-sm-4 col-xs-6 footer-links">
+                        <ul class="list-unstyled">
+                            <li>
+                                <a href="https://support.remita.net" target="_blank">Support and FAQs</a>
+                            </li>
+                            <li>
+                                <a href="http://systemspecs.com.ng/careers" target="_blank">Careers</a>
+                            </li>
+                            <li>
+                                <a href="https:////www.remita.net/legal/terms/">Terms and Conditions</a>
+                            </li>
+                            <li>
+                                <a href="https:////www.remita.net/legal/policy/">Privacy Policy</a>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="row h-divider">
+
+                </div>
+
+                <div class="row footer-credit">
+                    <p>Copyright © 2020 SystemSpecs. All Rights Reserved | Remita is a platform designed and developed by
+                        <a href="http://www.systemspecs.com.ng" target="_blank">SystemSpecs.</a>
+                    </p>
+                </div>
+            </div>
+        </footer>
+
+
+    </div>
+</body>
+
+</html>
