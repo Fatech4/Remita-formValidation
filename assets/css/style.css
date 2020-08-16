@@ -106,6 +106,14 @@ nav ul li a:hover {
     margin-bottom: 15px;
 }
 
+.hidden {
+    display: none;
+}
+
+#error {
+    color: red;
+}
+
 .form-group label {
     color: #444;
     cursor: pointer;

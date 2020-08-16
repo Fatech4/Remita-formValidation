@@ -5,6 +5,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Register</title>
+    <link href="./assets/images/favicon-remita.png" rel="shortcut icon" type="image/x-icon">
     <link rel="stylesheet" href="./assets/css/intlTelInput.css">
     <link rel="stylesheet" href="./assets/css/bootstrap.min.css">
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
@@ -59,12 +60,14 @@
                                     <div class="form-group ">
                                         <label for="email">Email Address <span class="required-field">*</span></label>
                                         <input type="email" class="form-control rounded-0 required" placeholder="Enter Email Address" id="email" required>
+                                        <label for="email" id="error"></label>
                                     </div>
                                 </div>
                                 <div class="col-sm-6">
                                     <div class="form-group ">
                                         <label for="phone">Phone Number <span class="required-field">*</span></label>
                                         <input type="tel" class="form-control rounded-0 required " id="phone" required>
+                                        <label for="phone" id="error"></label>
                                     </div>
                                 </div>
                             </div>
@@ -72,42 +75,48 @@
                                 <div class="form-group col-md-6">
                                     <label for="fname">First Name <span class="required-field">*</span></label>
                                     <input type="text" class="form-control rounded-0" id="fname" placeholder="Enter First Name" required>
+                                    <label for="fname" id="error"></label>
                                 </div>
                                 <div class="form-group col-md-6">
                                     <label for="lname">Last Name <span class="required-field">*</span></label>
                                     <input type="text" class="form-control rounded-0 required" placeholder="Enter Last Name" id="lname" required>
+                                    <label for="lname" id="error"></label>
                                 </div>
                             </div>
                             <div class="form-row">
                                 <div class="form-group col-md-12">
                                     <label for="accountType">This Registration is for <span class="required-field">*</span></label>
-                                    <select id="accountType" class="form-control required" name="rtype">
+                                    <select id="accountType" class="form-control " name="rtype" required>
                                         <option value="">Please Select From - Self/SME/Corporate etc</option>
                                         <option value="PERSONAL" id="personal">My Personal Account</option>
                                         <option value="SME" id="sme">MSME - Sole Signatory</option>
                                         <option value="CORPORATE">SME/Corporate - Multi Signatory</option>
                                         <option value="GOVERNMENT">Government/MDA</option>
                                 </select>
-
+                                    <label for="accountType" id="error"></label>
                                 </div>
                             </div>
-                            <div class="form-row">
-                                <div class="form-group col-md-12 ">
-                                    <label for="corporateName">Corporate/SME Name</label>
-                                    <input type="text" class="form-control required" id="corporateName" placeholder="Please Enter your Corporate/SME Name " name="corporateFullname" autocomplete="off">
+                            <div class="hidden">
+                                <div class="form-row ">
+                                    <div class="form-group col-md-12 ">
+                                        <label for="corporateName">Corporate/SME Name</label>
+                                        <input type="text" class="form-control required" id="corporateName" placeholder="Please Enter your Corporate/SME Name " name="corporateFullname" autocomplete="off">
+                                    </div>
                                 </div>
-                            </div>
-                            <div class="form-row">
-                                <div class="form-group col-md-6">
-                                    <label for="taxstate">Tax beneficiary state</label>
-                                    <select id="taxstate" class="form-control">
+                                <div class="gov">
+                                    <div class="form-row gov ">
+                                        <div class="form-group col-md-6">
+                                            <label for="taxstate">Tax beneficiary state</label>
+                                            <select id="taxstate" class="form-control">
                                             <option value="" selected="" disabled="" hidden="">Select Tax beneficiary state (Optional)</option>
                                             <option value="LAGOS">Lagos</option>
                                     </select>
-                                </div>
-                                <div class="form-group col-md-6">
-                                    <label for="statepayerid">Corporate Payer ID</label>
-                                    <input type="text" class="form-control rounded-0" id="statepayerid" required placeholder="Enter State PayerID (Optional)">
+                                        </div>
+                                        <div class="form-group col-md-6">
+                                            <label for="statepayerid">Corporate Payer ID</label>
+                                            <input type="text" class="form-control rounded-0" id="statepayerid" required placeholder="Enter State PayerID (Optional)">
+                                        </div>
+                                    </div>
                                 </div>
                             </div>
                             <button type="submit" class="btn btn-primary rounded-0">
@@ -206,12 +215,12 @@
             // dropdownContainer: document.body,
             // excludeCountries: ["us"],
             // formatOnDisplay: false,
-            // geoIpLookup: function(callback) {
-            //   $.get("http://ipinfo.io", function() {}, "jsonp").always(function(resp) {
-            //     var countryCode = (resp && resp.country) ? resp.country : "";
-            //     callback(countryCode);
-            //   });
-            // },
+            geoIpLookup: function(callback) {
+                $.get("http://ipinfo.io", function() {}, "jsonp").always(function(resp) {
+                    var countryCode = (resp && resp.country) ? resp.country : "";
+                    callback(countryCode);
+                });
+            },
             // hiddenInput: "full_number",
             // initialCountry: "auto",
             // localizedCountries: { 'de': 'Deutschland' },
