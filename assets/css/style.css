@@ -110,10 +110,6 @@ nav ul li a:hover {
     display: none;
 }
 
-#error {
-    color: red;
-}
-
 .form-group label {
     color: #444;
     cursor: pointer;
@@ -122,6 +118,10 @@ nav ul li a:hover {
     font-size: 13px;
     font-weight: 700;
     font-family: Helvetica Neue, Helvetica, Arial, sans-serif;
+}
+
+label.error {
+    color: red;
 }
 
 .required-field {

@@ -60,14 +60,14 @@
                                     <div class="form-group ">
                                         <label for="email">Email Address <span class="required-field">*</span></label>
                                         <input type="email" class="form-control rounded-0 required" placeholder="Enter Email Address" id="email" required>
-                                        <label for="email" id="error"></label>
+                                        <label for="email" class="error"></label>
                                     </div>
                                 </div>
                                 <div class="col-sm-6">
                                     <div class="form-group ">
                                         <label for="phone">Phone Number <span class="required-field">*</span></label>
                                         <input type="tel" class="form-control rounded-0 required " id="phone" required>
-                                        <label for="phone" id="error"></label>
+                                        <label for="phone" class="error" id="error"></label>
                                     </div>
                                 </div>
                             </div>
@@ -75,12 +75,12 @@
                                 <div class="form-group col-md-6">
                                     <label for="fname">First Name <span class="required-field">*</span></label>
                                     <input type="text" class="form-control rounded-0" id="fname" placeholder="Enter First Name" required>
-                                    <label for="fname" id="error"></label>
+                                    <label for="fname" class="error"></label>
                                 </div>
                                 <div class="form-group col-md-6">
                                     <label for="lname">Last Name <span class="required-field">*</span></label>
                                     <input type="text" class="form-control rounded-0 required" placeholder="Enter Last Name" id="lname" required>
-                                    <label for="lname" id="error"></label>
+                                    <label for="lname" class="error"></label>
                                 </div>
                             </div>
                             <div class="form-row">
@@ -93,7 +93,7 @@
                                         <option value="CORPORATE">SME/Corporate - Multi Signatory</option>
                                         <option value="GOVERNMENT">Government/MDA</option>
                                 </select>
-                                    <label for="accountType" id="error"></label>
+                                    <label for="accountType" class="error"></label>
                                 </div>
                             </div>
                             <div class="hidden">
@@ -215,15 +215,15 @@
             // dropdownContainer: document.body,
             // excludeCountries: ["us"],
             // formatOnDisplay: false,
-            geoIpLookup: function(callback) {
+            // geoIpLookup: function(callback) {
 
-                $.get("http://ipinfo.io", function() {}, "jsonp").always(function(resp) {
-                    var countryCode = (resp && resp.country) ? resp.country : "";
-                    callback(countryCode);
-                });
-            },
+            //     $.get("http://ipinfo.io", function() {}, "jsonp").always(function(resp) {
+            //        var countryCode = (resp && resp.country) ? resp.country : "";
+            //         callback(countryCode);
+            //     });
+            // },
             // hiddenInput: "full_number",
-            initialCountry: "auto",
+            initialCountry: "ng",
             // localizedCountries: { 'de': 'Deutschland' },
             // nationalMode: false,
             // onlyCountries: ['us', 'gb', 'ch', 'ca', 'do'],
