@@ -28,19 +28,30 @@ account.addEventListener('change', function() {
         gov.style.display = "none";
         labelChange.textContent = "Government/MDA Name "
         corporate.placeholder = "Please Enter your Government/MDA Name"
-    } else {
-
-    }
+    } else {}
 
 })
+const req = document.querySelectorAll('[required]');
+req.forEach(function(field) {
+    field.addEventListener('input', function() {
+        if (field.validity.valid) {
+            for (i = 0; i < req.length; i++) {
+                error[i].innerHTML = "";
+                req[i].style.border = "inherit";
+                req[i].style.background = "inherit";
+            }
 
+        }
+    })
+})
 
 form.addEventListener('submit', function(e) {
-    const req = document.querySelectorAll('[required]');
+
     for (i = 0; i < req.length; i++) {
         if (req[i].validity.valid) {
             error[i].innerHTML = "";
             req[i].style.border = "inherit";
+            window.alert("Form Submitted Sucessfully");
         } else {
             e.preventDefault();
             error[i].innerHTML = "The field is required";

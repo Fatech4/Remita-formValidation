@@ -5,7 +5,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Register</title>
-    <link href="./assets/images/favicon-remita.png" rel="shortcut icon" type="image/x-icon">
+    <link href="assets/images/favicon-remita.png" rel="shortcut icon" type="image/x-icon">
     <link rel="stylesheet" href="./assets/css/intlTelInput.css">
     <link rel="stylesheet" href="./assets/css/bootstrap.min.css">
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
@@ -21,7 +21,7 @@
             <div class="container header-container d-flex flex-row justify-content-between">
                 <div class="logo">
                     <a href="//www.remita.net/signin" class="logo">
-                        <img src="./assets/images/remita_logo_white.png" alt="Remita Logo">
+                        <img src="assets/images/remita_logo_white.png" alt="Remita Logo">
                     </a>
                 </div>
                 <nav>
@@ -46,7 +46,7 @@
 
                 <div class="personal-registration-container">
                     <div class="col-sm-12 center-box text-center">
-                        <img src="./assets/images/registration_icon.svg">
+                        <img src="assets/images/registration_icon.svg">
                         <h3>Register with Remita</h3>
 
 
@@ -204,8 +204,8 @@
 
 
     </div>
-    <script src="./assets/js/index.js"></script>
-    <script src="./assets/js/intlTelInput.js"></script>
+    <script src="assets/js/index.js"></script>
+    <script src="assets/js/intlTelInput.js"></script>
     <script>
         var input = document.querySelector("#phone");
         window.intlTelInput(input, {
@@ -216,13 +216,14 @@
             // excludeCountries: ["us"],
             // formatOnDisplay: false,
             geoIpLookup: function(callback) {
+
                 $.get("http://ipinfo.io", function() {}, "jsonp").always(function(resp) {
                     var countryCode = (resp && resp.country) ? resp.country : "";
                     callback(countryCode);
                 });
             },
             // hiddenInput: "full_number",
-            // initialCountry: "auto",
+            initialCountry: "auto",
             // localizedCountries: { 'de': 'Deutschland' },
             // nationalMode: false,
             // onlyCountries: ['us', 'gb', 'ch', 'ca', 'do'],
