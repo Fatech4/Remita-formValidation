@@ -4,43 +4,56 @@ const labelChange = document.querySelector('[for=corporateName]');
 const corporate = document.getElementById('corporateName');
 const gov = document.querySelector('.gov');
 const form = document.getElementsByTagName('form')[0];
+const fName = document.getElementById('fname');
+    const lName = document.getElementById('lname');
+    const phone = document.getElementById('phone');
+    const email = document.getElementById('email');
+    const  lab='<span class="required-field">*</span>';
+
+    //const accountHidden=document.querySelector('.required');
+
+//hidden field
 
 
 account.addEventListener('change', function() {
     if (account.value == "PERSONAL") {
         document.querySelector('.hidden').style.display = "none";
+     //   corporate.classList.remove('required');
 
     } else if (account.value == "SME") {
+       
         labelChange.textContent = "Micro SME Name "
+        labelChange.insertAdjacentHTML('beforeend',lab);
         corporate.placeholder = "Please Enter your Micro SME Name"
         gov.style.display = "block";
         document.querySelector('.hidden').style.display = "block";
+    //    corporate.classList.add('required');
 
     } else if (account.value == "CORPORATE") {
         labelChange.textContent = "Corporate/SME Name "
+        labelChange.insertAdjacentHTML('beforeend',lab);
         corporate.placeholder = "Please Enter your Corporate/SME Name"
         gov.style.display = "block";
         document.querySelector('.hidden').style.display = "block";
-
+      //  corporate.classList.add('required');
 
     } else if (account.value == "GOVERNMENT") {
         document.querySelector('.hidden').style.display = "block";
-
+        
         gov.style.display = "none";
         labelChange.textContent = "Government/MDA Name "
+        labelChange.insertAdjacentHTML('beforeend',lab);
         corporate.placeholder = "Please Enter your Government/MDA Name"
+     //   corporate.classList.add('required');
     } else {}
 
-})
+});
 
 
+//console.log(accountHidden);
 function fvalidation() {
-    const fName = document.getElementById('fname');
-    const lName = document.getElementById('lname');
-    const phone = document.getElementById('phone');
-    const account = document.getElementById('accountType');
-    const email = document.getElementById('email')
-    var fnameErr = lnameErr = phoneErr = emailErr = accountErr = true;
+    
+    var fnameErr = lnameErr = phoneErr = emailErr = accountErr =requiredErr= true;
 
     if (email.validity.valid) {
         error = document.querySelector('#email + label.error');
@@ -94,7 +107,7 @@ function fvalidation() {
         phone.style.background = "#ffe4dc";
         phoneErr = false;
     }
-    if (phone.validity.valid) {
+    if (account.validity.valid) {
         error = document.querySelector('#accountType + label.error');
         error.textContent = "";
         error.style.border = "inherit";
@@ -107,12 +120,25 @@ function fvalidation() {
         account.style.background = "#ffe4dc";
         accountErr = false;
     }
+    /* if (accountHidden.validity.valid) {
+        error = document.querySelector('input.required + label.error');
+        error.textContent = "ddddd";
+        error.style.border = "inherit";
 
 
-    if ((emailErr || fnameErr || lnameErr || phoneErr || accountErr) == false) {
-        return false;
     } else {
+        error = document.querySelector('.required + label.error');
+        error.textContent = "The field is required";
+        accountHidden.style.border = "2px solid red";
+        accountHidden.style.background = "#ffe4dc";
+      //  requiredErr = f;
+    }
+ */
+    if ((emailErr =fnameErr=lnameErr=phoneErr =accountErr)==true) {
         alert("Form Submitted Successfully");
+     //   location.reload();   
+    } else {
+        return false;
     }
 }
 
@@ -121,44 +147,47 @@ function fvalidation() {
 form.addEventListener('submit', function(event) {
     event.preventDefault();
     fvalidation();
-    /*  event.preventDefault(); */
-    /*  if (fvalidation() == true) {
-         alert("hvhvhvhv");
-         return true;
-     } else {
-         event.preventDefault();
-         return false;
-     }  */
-})
+   
+});
 
-/* onst req = document.querySelectorAll('[required]');
-req.forEach(function(field) {
-    field.addEventListener('input', function() {
-        if (field.validity.valid) {
-            for (i = 0; i < req.length; i++) {
-                error[i].innerHTML = "";
-                req[i].style.border = "inherit";
-                req[i].style.background = "inherit";
-            }
 
+fName.addEventListener('input',function(){changeEvent(fName)});
+lName.addEventListener('input',function(){changeEvent(lName)});
+phone.addEventListener('input',function(){
+    if(!(phone.validity.typeMismatch)){
+        error = document.getElementById('error');
+        error.textContent = "";
+        phone.style.border = "inherit";
+        phone.style.background = "inherit";
+         }
+         else{
+             error.textContent = "This fIeld is required";
+             phone.style.border = "2px solid red";
+             phone.style.background = "#ffe4dc";
+         }
+
+
+
+});
+account.addEventListener('input',function(){changeEvent(account)});
+email.addEventListener('input',function(){changeEvent(email)});
+//fName.addEventListener('input',function(){changeEvent(fName)});
+
+function changeEvent(element){
+
+        if(element.validity.valid){
+       error = document.querySelector("#"+ CSS.escape(element.id) + "+ label.error");
+         error.textContent = "";
+        element.style.border = "inherit";
+       element.style.background = "inherit";
         }
-    })
-})
-
-form.addEventListener('submit', function(e) {
-
-    for (i = 0; i < req.length; i++) {
-        if (req[i].validity.valid) {
-            error[i].innerHTML = "";
-            req[i].style.border = "inherit";
-
-        } else {
-            e.preventDefault();
-            error[i].innerHTML = "The field is required";
-            req[i].style.border = "2px solid red";
-            req[i].style.background = "#ffe4dc";
-
+        else{
+            error.textContent = "This fIeld is required";
+            element.style.border = "2px solid red";
+            element.style.background = "#ffe4dc";
         }
-    }
 
-}); */
+
+}
+
+
