@@ -10,7 +10,7 @@ const fName = document.getElementById('fname');
     const email = document.getElementById('email');
     const  lab='<span class="required-field">*</span>';
 
-    //const accountHidden=document.querySelector('.required');
+    const accountHidden=document.getElementsByClassName('required');
 
 //hidden field
 
@@ -18,7 +18,7 @@ const fName = document.getElementById('fname');
 account.addEventListener('change', function() {
     if (account.value == "PERSONAL") {
         document.querySelector('.hidden').style.display = "none";
-     //   corporate.classList.remove('required');
+        corporate.classList.remove('required');
 
     } else if (account.value == "SME") {
        
@@ -27,7 +27,7 @@ account.addEventListener('change', function() {
         corporate.placeholder = "Please Enter your Micro SME Name"
         gov.style.display = "block";
         document.querySelector('.hidden').style.display = "block";
-    //    corporate.classList.add('required');
+        corporate.classList.add('required');
 
     } else if (account.value == "CORPORATE") {
         labelChange.textContent = "Corporate/SME Name "
@@ -35,7 +35,7 @@ account.addEventListener('change', function() {
         corporate.placeholder = "Please Enter your Corporate/SME Name"
         gov.style.display = "block";
         document.querySelector('.hidden').style.display = "block";
-      //  corporate.classList.add('required');
+        corporate.classList.add('required');
 
     } else if (account.value == "GOVERNMENT") {
         document.querySelector('.hidden').style.display = "block";
@@ -44,13 +44,13 @@ account.addEventListener('change', function() {
         labelChange.textContent = "Government/MDA Name "
         labelChange.insertAdjacentHTML('beforeend',lab);
         corporate.placeholder = "Please Enter your Government/MDA Name"
-     //   corporate.classList.add('required');
+        corporate.classList.add('required');
     } else {}
 
 });
 
 
-//console.log(accountHidden);
+
 function fvalidation() {
     
     var fnameErr = lnameErr = phoneErr = emailErr = accountErr =requiredErr= true;
@@ -120,23 +120,26 @@ function fvalidation() {
         account.style.background = "#ffe4dc";
         accountErr = false;
     }
-    /* if (accountHidden.validity.valid) {
+    if(corporate.classList.contains('required')) {
+     
+    if ((corporate.validity.valid)) { 
         error = document.querySelector('input.required + label.error');
-        error.textContent = "ddddd";
+        error.textContent = "";
         error.style.border = "inherit";
-
 
     } else {
         error = document.querySelector('.required + label.error');
         error.textContent = "The field is required";
-        accountHidden.style.border = "2px solid red";
-        accountHidden.style.background = "#ffe4dc";
-      //  requiredErr = f;
+        corporate.style.border = "2px solid red";
+        corporate.style.background = "#ffe4dc";
+        requiredErr = false;
     }
- */
-    if ((emailErr =fnameErr=lnameErr=phoneErr =accountErr)==true) {
+}
+console.log(requiredErr);
+ 
+    if (((emailErr && fnameErr) &&(lnameErr && phoneErr) && (accountErr && requiredErr))==true) {
         alert("Form Submitted Successfully");
-     //   location.reload();   
+        location.reload();   
     } else {
         return false;
     }
@@ -150,7 +153,7 @@ form.addEventListener('submit', function(event) {
    
 });
 
-
+corporate.addEventListener('input',()=>{changeEvent(corporate)});
 fName.addEventListener('input',function(){changeEvent(fName)});
 lName.addEventListener('input',function(){changeEvent(lName)});
 phone.addEventListener('input',function(){
@@ -190,4 +193,4 @@ function changeEvent(element){
 
 }
 
-
+console.log(accountHidden);
